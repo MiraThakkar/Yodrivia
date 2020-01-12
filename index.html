@@ -5,9 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Yodrivia</title>
+
+    <!-- Bootstrap style link-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Moment.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <!-- Custom or override css -->
+    <link rel="stylesheet" href="./styles/font-imports.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
 </head>
 <body>
-    
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Search a City</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <form class="form-inline d-flex flex-column justify-content-start align-items-start" id="searchCityForm">
+                    <div class="d-flex flex-row w-100 justify-content-between align-items-center">
+                        <div class="form-group mx-sm-3 flex-grow-1 align-items-center justify-content-center m-0">
+                            <input type="text" class="d-flex flex-grow-1 form-control" id="inputCity" placeholder="City name, country code...">
+                        </div>
+                        <button type="submit" class="btn btn-primary m-0 mr-2" id="searchCityBttn"><i class="fa fa-search"></i></button>
+                    </div>
+                    <p class="m-0 p-0 ml-3 exampleText">Example: Hartford</p>
+                    <p class="m-0 p-0 ml-3 exampleText mb-2">Example: Hartford, US</p>
+                </form>
+                <li class="d-flex cityList">
+                    <a class="d-flex w-100 py-0 flex-grow justify-content-between align-items-center" href="#" id="cityNameLink">
+                        <p class="m-0 p-0" id="cityListName">City Here</p>
+                        <button class="btn m-0" id="pastSearchBttn"><i class="fa fa-times"></i></button>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <h1 id="header-text">Yodrivia</h1>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Bootstrap.js here -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="./scripts/index.js"></script>
     <script src="./apiKey.js"></script>
 </body>
