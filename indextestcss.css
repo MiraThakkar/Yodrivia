@@ -1,0 +1,11 @@
+hr{
+    border: 1px solid #dddddd;
+}
+.card{
+    margin: 10px;
+    padding: 10px;
+}
+.btn{
+    margin: 5px;
+    width: auto;
+}
