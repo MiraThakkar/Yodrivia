@@ -21,6 +21,10 @@ $(document).ready(function () {
     $(".card-question").click(function(){
         flipcard();
     })   
+
+    //TODO: Add event listener for clicking radio button for user and 
+    //      dynamically show or hide correct answer container
+    $("")
 });
 
 //function to flip the question card

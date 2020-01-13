@@ -37,28 +37,49 @@
             </div>
 
             <ul class="list-unstyled components mr-0">
-                <form class="form-inline d-flex flex-column" id="addUserQuestionForm">
+                <form class=" d-flex flex-column" id="addUserQuestionForm">
                     <div class="mb-3 d-flex w-100">
                       <textarea class="form-control w-100 mx-1" id="userInputQuestion" placeholder="Enter your question here..." required></textarea>
                     </div>
                     
-                    <div class="container d-flex flex-column px-1">
+                    <div class="container-fluid d-flex flex-column px-1">
                         <p class="m-0" id="userQuestionTypeHeader">Question Type:</p>
 
                         <div class="custom-control d-flex flex-row custom-radio">
-                            <input type="radio" id="userInputQuestionType1" name="customRadio" class="custom-control-input m-0 p-0 mr-1">
+                            <input type="radio" id="userInputQuestionType1" name="userQuestionType" class="custom-control-input m-0 p-0 mr-1">
                             <label class="custom-control-label m-0 p-0 userInputQuestionType" for="userInputQuestionType1">True/False</label>
                         </div>
                         <div class="custom-control d-flex flex-row custom-radio">
-                            <input type="radio" id="userInputQuestionType2" name="customRadio" class="custom-control-input m-0 p-0">
+                            <input type="radio" id="userInputQuestionType2" name="userQuestionType" class="custom-control-input m-0 p-0">
                             <label class="custom-control-label m-0 p-0 userInputQuestionType" for="userInputQuestionType2">Multiple Choice</label>
                         </div>    
                         <div class="custom-control d-flex flex-row custom-radio">
-                            <input type="radio" id="userInputQuestionType3" name="customRadio" disabled class="custom-control-input m-0 p-0">
+                            <input type="radio" id="userInputQuestionType3" name="userQuestionType" disabled class="custom-control-input m-0 p-0">
                             <label class="custom-control-label m-0 p-0 userInputQuestionType-disabled" for="userInputQuestionType3">Open Ended</label>
                         </div>                
                     </div>       
 
+                    <div class="container-fluid d-flex flex-column px-1 mt-2" id="correctAnswerContainer">
+                        <p class="m-0" id="correctAnswerHeader">Correct Answer:</p>
+
+                        <div class="d-none container-fluid p-0 m-0" id="trueFalseAnswers">
+                            <div class="custom-control d-flex flex-row custom-radio">
+                                <input type="radio" id="userAnswerTrue" name="customAnswerRadio" class="custom-control-input m-0 p-0 mr-1">
+                                <label class="custom-control-label m-0 p-0 userInputAnswer" for="userAnswerTrue">True</label>
+                            </div>
+                            <div class="custom-control d-flex flex-row custom-radio">
+                                <input type="radio" id="userAnswerFalse" name="customAnswerRadio" class="custom-control-input m-0 p-0">
+                                <label class="custom-control-label m-0 p-0 userInputAnswer" for="userAnswerFalse">False</label>
+                            </div>                            
+                        </div>
+
+                        <div class="d-none container-fluid p-0 m-0" id="userMultipleChoiceAnswers">
+                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleAnswerA" placeholder="Answer A" required></textarea>
+                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleAnswerB" placeholder="Answer B" required></textarea>
+                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleAnswerC" placeholder="Answer C" required></textarea>
+                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleAnswerD" placeholder="Answer D" required></textarea>                            
+                        </div>
+                    </div> 
                   </form>
                 
 
