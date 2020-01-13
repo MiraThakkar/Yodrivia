@@ -18,32 +18,50 @@
     <!-- Custom or override css -->
     <link rel="stylesheet" href="./styles/font-imports.css" />
     <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
 </head>
 <body>
 
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Search a City</h3>
+            <div class="sidebar-header d-flex pr-2 align-items-center justify-content-center">
+                <h3 class="text-wrap w-75">Create Your Own</h3>
+                <button type="submit" class="btn btn-primary m-0 align-self-start" id="addUserQuestionBttn"><i class="fa fa-plus"></i></button>
             </div>
 
             <ul class="list-unstyled components">
-                <form class="form-inline d-flex flex-column justify-content-start align-items-start" id="searchCityForm">
-                    <div class="d-flex flex-row w-100 justify-content-between align-items-center">
-                        <div class="form-group mx-sm-3 flex-grow-1 align-items-center justify-content-center m-0">
-                            <input type="text" class="d-flex flex-grow-1 form-control" id="inputCity" placeholder="City name, country code...">
-                        </div>
-                        <button type="submit" class="btn btn-primary m-0 mr-2" id="searchCityBttn"><i class="fa fa-search"></i></button>
+                <form class="was-validated form-inline d-flex flex-column" id="addUserQuestionForm">
+                    <div class="mb-3 d-flex w-100">
+                      <textarea class="form-control is-invalid mx-1" id="userInputQuestion" placeholder="Enter your question here..." required></textarea>
                     </div>
-                    
-                </form>
-                <li class="d-flex cityList">
-                    <a class="d-flex w-100 py-0 flex-grow justify-content-between align-items-center" href="#" id="cityNameLink">
-                        <p class="m-0 p-0" id="cityListName">City Here</p>
-                        <button class="btn m-0" id="pastSearchBttn"><i class="fa fa-times"></i></button>
-                    </a>
-                </li>
+                  
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                      <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
+                      <div class="invalid-feedback">Example invalid feedback text</div>
+                    </div>
+                  
+                    <!-- <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                      <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                      <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+                      <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
+                      <div class="invalid-feedback">More example invalid feedback text</div>
+                    </div> -->
+                  
+                    <!-- <div class="form-group">
+                      <select class="custom-select" required>
+                        <option value="">Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div class="invalid-feedback">Example invalid custom select feedback</div>
+                    </div> -->
+                  </form>
             </ul>
         </nav>
 
