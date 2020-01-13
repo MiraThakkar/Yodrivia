@@ -11,9 +11,9 @@
 
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Moment.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    
+    <!-- Compressed Foundation CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
 
     <!-- Custom or override css -->
     <link rel="stylesheet" href="./styles/font-imports.css" />
@@ -27,29 +27,19 @@
         <nav id="sidebar">
             <div class="sidebar-header d-flex pr-2 align-items-center justify-content-center">
                 <h3 class="text-wrap w-75">Create Your Own</h3>
-                <button type="submit" class="btn btn-primary m-0 align-self-start" id="addUserQuestionBttn"><i class="fa fa-plus"></i></button>
+                <button type="submit" class="btn btn-primary m-0 align-self-start" id="addUserQuestionBttn" form=""><i class="fa fa-plus"></i></button>
             </div>
 
             <ul class="list-unstyled components">
-                <form class="was-validated form-inline d-flex flex-column" id="addUserQuestionForm">
+                <form class="form-inline d-flex flex-column" id="addUserQuestionForm">
                     <div class="mb-3 d-flex w-100">
-                      <textarea class="form-control is-invalid mx-1" id="userInputQuestion" placeholder="Enter your question here..." required></textarea>
+                      <textarea class="form-control w-100 mx-1" id="userInputQuestion" placeholder="Enter your question here..." required></textarea>
                     </div>
                   
-                    <div class="custom-control custom-checkbox mb-3">
+                    <!-- <div class="custom-control custom-checkbox mb-3">
                       <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
                       <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
                       <div class="invalid-feedback">Example invalid feedback text</div>
-                    </div>
-                  
-                    <!-- <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-                      <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
-                    </div>
-                    <div class="custom-control custom-radio mb-3">
-                      <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
-                      <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
-                      <div class="invalid-feedback">More example invalid feedback text</div>
                     </div> -->
                   
                     <!-- <div class="form-group">
@@ -62,6 +52,18 @@
                       <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div> -->
                   </form>
+                
+                <div class="container-fluid px-1">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio2">Test nice long text for user input choice</label>
+                    </div>                    
+                </div>
+
             </ul>
         </nav>
 
@@ -129,6 +131,10 @@
 
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Foundation Framework -->
+    <!-- Compressed Foundation JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
 
     <script src="./scripts/index.js"></script>
     <script src="./scripts/jquery.flip.min.js"></script>
