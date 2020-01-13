@@ -155,12 +155,25 @@ hr{
     border: 1px solid #dddddd;
 }
 .card{
-    margin: 10px;
-    padding: 10px;
+    margin-bottom: 0.5rem;
+    background-color: unset;
+    transition: all 0.5s ease-out 0s;
 }
 .btn{
     margin: 5px;
     width: auto;
+}
+.front{
+    padding: 0.5rem;
+    background-image: url(../Images/640x960-aero-blue-solid-color-background.jpg);
+}
+.back{
+    padding: 0.5rem;
+    background-image: url(../Images/640x960-aero-blue-solid-color-background.jpg);
+
+}
+.card-body {
+    padding: 0.5rem;
 }
 
 /* ---------------------------------------------------
