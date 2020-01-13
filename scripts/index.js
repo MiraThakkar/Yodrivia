@@ -2,6 +2,10 @@
 
 $(document).ready(function () {
 
+    //call the function when load the page (prevent see the back of the card "anwsers")
+    flipcard();
+
+
     //bind functionality to sidebar
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
@@ -11,6 +15,7 @@ $(document).ready(function () {
     /* ---------------------------------------------------
     CARDS JQUERY
     ----------------------------------------------------- */
+
 
     //event click on question card
     $(".card-question").click(function(){
