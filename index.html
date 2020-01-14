@@ -6,6 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Yodrivia</title>
 
+    <!-- Bootstrap style link-->
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     
+    <!--Mira 1/14 Begin-->
+    <!-- Bootstrap style script link for carousel -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--Mira 1/14 end-->
+    
+    
+</head>
+
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -46,15 +61,15 @@
                         <p class="m-0" id="userQuestionTypeHeader">Question Type:</p>
 
                         <div class="custom-control d-flex flex-row custom-radio">
-                            <input type="radio" id="userInputQuestionType1" name="userQuestionType" class="custom-control-input m-0 p-0 mr-1">
+                            <input type="radio" id="userInputQuestionType1" name="userQuestionType" class="custom-control-input questionTypeRadio m-0 p-0 mr-1" data-questionType="trueFalse">
                             <label class="custom-control-label m-0 p-0 userInputQuestionType" for="userInputQuestionType1">True/False</label>
                         </div>
                         <div class="custom-control d-flex flex-row custom-radio">
-                            <input type="radio" id="userInputQuestionType2" name="userQuestionType" class="custom-control-input m-0 p-0">
+                            <input type="radio" id="userInputQuestionType2" name="userQuestionType" class="custom-control-input questionTypeRadio m-0 p-0" data-questionType="multipleChoice">
                             <label class="custom-control-label m-0 p-0 userInputQuestionType" for="userInputQuestionType2">Multiple Choice</label>
                         </div>    
                         <div class="custom-control d-flex flex-row custom-radio">
-                            <input type="radio" id="userInputQuestionType3" name="userQuestionType" disabled class="custom-control-input m-0 p-0">
+                            <input type="radio" id="userInputQuestionType3" name="userQuestionType" disabled class="custom-control-input questionTypeRadio m-0 p-0" data-questionType="openEnded">
                             <label class="custom-control-label m-0 p-0 userInputQuestionType-disabled" for="userInputQuestionType3">Open Ended</label>
                         </div>                
                     </div>       
@@ -98,7 +113,6 @@
                             <span></span>
                             <span></span>
                         </button>
-    
                         <h1 id="header-text">Yodrivia</h1>
                     </div>
                 </nav>
@@ -145,6 +159,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+
 
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

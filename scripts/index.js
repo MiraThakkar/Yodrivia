@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     //TODO: Add event listener for clicking radio button for user and 
     //      dynamically show or hide correct answer container
-    $("")
+    $(document).on("click", ".questionTypeRadio", renderAnswerInputs)
 });
 
 //function to flip the question card
@@ -50,3 +50,12 @@ var autoExpand = function (field) {
 	field.style.height = height + 'px';
 
 };
+
+function renderAnswerInputs() {
+    let questionType = '';
+    if($(this).attr("data-questionType") === "trueFalse") questionType="true/false";
+    if($(this).attr("data-questionType") === "multipleChoice") questionType="Multiple Choice";
+    if($(this).attr("data-questionType") === "openEnded") questionType="Open Ended";  
+
+    alert(questionType);
+}
