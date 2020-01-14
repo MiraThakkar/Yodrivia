@@ -31,3 +31,8 @@ $(document).ready(function () {
         }
     
 });
+
+    //Trivia DB API Function
+
+    
+

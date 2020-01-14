@@ -2,7 +2,7 @@
     color: rgb(73, 73, 73);
     font-family: 'Montserrat';
     font-size: 2.0em;
-    margin: 0;
+    margin: auto;
 }
 
 body {
@@ -175,6 +175,16 @@ hr{
 .card-body {
     padding: 0.5rem;
 }
+/* ---------------------------------------------------
+    CAROUSEL STYLE
+----------------------------------------------------- */
+
+#myCarousel img {
+    height:400px; 
+}
+
+
+
 
 /* ---------------------------------------------------
     MEDIAQUERIES
