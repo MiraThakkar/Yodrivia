@@ -70,5 +70,38 @@ function flipcard (){
     });
 };
 
-    
+//funtion to call Trivia DB
+function triviaDB (){
 
+    var numOfQuestion = 10;
+    var triviaURL = "https://opentdb.com/api.php?amount=" + numOfQuestion; 
+
+    $.ajax({
+        url: triviaURL,
+        method: "GET"
+        }).then(function(response){
+
+        console.log(response);
+
+        for (i=0; i<=1; i++){
+            var question = response.results[i].question;
+            //  console.log(question);
+            var answersArr = [];
+                for(j=0; j<3; j++){
+                    var option = response.results[i].incorrect_answers[j];
+                    //console.log(option);
+                    answersArr.push(option);
+                    
+                }
+            var correctAns = response.results[i].correct_answer;
+            answersArr.push(correctAns);
+            console.log(answersArr);
+        }
+                    
+    });
+        
+}
+
+triviaDB ();
+
+    

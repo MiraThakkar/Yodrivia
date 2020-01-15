@@ -179,8 +179,10 @@ hr{
     CAROUSEL STYLE
 ----------------------------------------------------- */
 
-#myCarousel img {
-    height:400px; 
+#myCarousel img{
+
+    height: 100% !important;
+
 }
 
 
