@@ -10,15 +10,16 @@
 
 #addUserQuestionForm {
     font-family: 'Montserrat';
-    font-size: .8em;
 }
 
 .userInputQuestionType, .userInputAnswer {
     color: white !important;
+    font-size: 1.0em;
 }
 
 .userInputQuestionType-disabled {
     color: rgb(180, 180, 180) !important;
+    font-size: 1.0em;
 }
 
 textarea {
