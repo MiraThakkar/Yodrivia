@@ -52,12 +52,15 @@ var autoExpand = function (field) {
 };
 
 function renderAnswerInputs() {
-    let questionType = '';
-    if($(this).attr("data-questionType") === "trueFalse") questionType="true/false";
-    if($(this).attr("data-questionType") === "multipleChoice") questionType="Multiple Choice";
-    if($(this).attr("data-questionType") === "openEnded") questionType="Open Ended";  
-
-    alert(questionType);
+    if($(this).attr("data-questionType") === "trueFalse") {
+        $("#trueFalseAnswers").removeClass("d-none");
+        $("#userMultipleChoiceAnswers").addClass("d-none")
+    } else if($(this).attr("data-questionType") === "multipleChoice") {
+        $("#trueFalseAnswers").addClass("d-none");
+        $("#userMultipleChoiceAnswers").removeClass("d-none")
+    } else if($(this).attr("data-questionType") === "openEnded") {
+        
+    } 
 };
 
 //function to flip the question card
@@ -65,7 +68,6 @@ function flipcard (){
     $(".card-question").flip({
         axis: 'x',
     });
-
 };
 
     
