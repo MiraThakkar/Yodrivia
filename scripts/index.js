@@ -58,4 +58,15 @@ function renderAnswerInputs() {
     if($(this).attr("data-questionType") === "openEnded") questionType="Open Ended";  
 
     alert(questionType);
-}
+};
+
+//function to flip the question card
+function flipcard (){
+    $(".card-question").flip({
+        axis: 'x',
+    });
+
+};
+
+    
+
