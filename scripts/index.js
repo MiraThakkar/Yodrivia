@@ -18,12 +18,8 @@ $(document).ready(function () {
     }, false);
 
     //event click on question card controlling the flip
-    $(".card-question").click(function(){
-        flipcard();
-    })   
+    $(".card-question").click(function(){ flipcard() }) ;  
 
-    //TODO: Add event listener for clicking radio button for user and 
-    //      dynamically show or hide correct answer container
     $(document).on("click", ".questionTypeRadio", renderAnswerInputs)
 });
 
@@ -59,7 +55,7 @@ function renderAnswerInputs() {
         $("#trueFalseAnswers").addClass("d-none");
         $("#userMultipleChoiceAnswers").removeClass("d-none")
     } else if($(this).attr("data-questionType") === "openEnded") {
-        
+       //TODO: Time permitting 
     } 
 };
 

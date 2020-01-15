@@ -11,7 +11,7 @@
 
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- Compressed Foundation CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
     <!-- foundation-float.min.css: Compressed CSS with legacy Float Grid -->
@@ -20,14 +20,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation-prototype.min.css" integrity="sha256-JyhZsgvsqjrdl9GPOILi/zyc+z4dcwXiyP1Q7cwWlM0= sha384-GtUT6gOaCY/S1ggTUOnqe5CQAEAZ6oVTmMq3X4vfZrvp+tLgjBEmwVxJnukor+o0 sha512-x3+KBxBjFh8PGncrfDOsJhntYDBFdJxmpb211THYkQOaGWvk7ckZG6prGUpZqz85AXgiispjow06+bDnIxnWDQ==" crossorigin="anonymous">
     <!-- foundation-rtl.min.css: Compressed CSS with right-to-left reading direction -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation-rtl.min.css" integrity="sha256-Az+E7JXW71Srarkum5QPTdnobddg2GqI1i8+nMusgLk= sha384-eBKuNtkGVmsJD0uNnWoKYYVnzDT0PXV+XNyAgmmZwYVn7MSNcaR4i5HjOpSRd0o6 sha512-d0RjiDZM/0NlD+7Y2DhUGuAUdwDIL5lS3GPAD0HEayEcrhuLuRiPYOgFWZik+gsFzsykxSn0KO6jim7ev8kIig==" crossorigin="anonymous">
-     
-    <!-- Bootstrap style script link for carousel -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <!-- Bootstrap style link-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- Bootstrap style script link for carousel -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <!-- Custom or override css -->
     <link rel="stylesheet" href="./styles/font-imports.css" />
@@ -40,8 +40,8 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header d-flex pr-2 align-items-center justify-content-center">
-                <h3 class="text-wrap w-75">Create Your Own</h3>
-                <button type="submit" class="btn btn-primary m-0 align-self-start" id="addUserQuestionBttn" form=""><i class="fa fa-plus"></i></button>
+                <h3 class="text-wrap w-75 m-0 pr-4">Create Your Own</h3>
+                <button type="submit" class="btn btn-primary m-0 ml-2 align-self-start" id="addUserQuestionBttn" form=""><i class="fa fa-plus"></i></button>
             </div>
 
             <ul class="list-unstyled components mr-0">
@@ -53,7 +53,7 @@
                     <div class="container-fluid d-flex flex-column px-1">
                         <p class="m-0" id="userQuestionTypeHeader">Question Type:</p>
 
-                        <div class="custom-control d-flex flex-row custom-radio">
+                        <div class="custom-control d-flex flex-row custom-radio align-items-center">
                             <input type="radio" id="userInputQuestionType1" name="userQuestionType" class="custom-control-input questionTypeRadio m-0 p-0 mr-1" data-questionType="trueFalse">
                             <label class="custom-control-label m-0 p-0 userInputQuestionType" for="userInputQuestionType1">True/False</label>
                         </div>
@@ -94,7 +94,7 @@
 
         <!-- Page Content Holder -->
         <div class="container">
-            <div id="content">
+            <div class="px-0" id="content">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
     
@@ -110,15 +110,15 @@
                 <!-- Question Card Template below -->
                 <!--Baby Yoda Carousel-->
 
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
+                <div id="myCarousel" class="carousel slide mb-4" data-ride="carousel">
+                    
                     <ol class="carousel-indicators">
                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                       <li data-target="#myCarousel" data-slide-to="1"></li>
                       <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>
                 
-                    <!-- Wrapper for slides -->
+                    
                     <div class="carousel-inner">
                 
                       <div class="item active">
@@ -147,7 +147,7 @@
                   
                     </div>
                 
-                    <!-- Left and right controls -->
+                    
                     <a class="left carousel-control" href= "#myCarousel" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
                       <span class="sr-only">Previous</span>
@@ -156,9 +156,8 @@
                       <span class="glyphicon glyphicon-chevron-right"></span>
                       <span class="sr-only">Next</span>
                     </a>
-                  </div>
                 </div>
-                
+
                 <div class="card card-question">
                     <div class="front">
                         <div class="card-body">
@@ -193,8 +192,10 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
+    </div>
 
     <!-- Bootstrap.js here -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
