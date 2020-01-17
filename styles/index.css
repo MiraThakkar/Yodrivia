@@ -2,6 +2,10 @@
     height: unset !important;
 }
 
+#errorMessage, #userQuestionInputError, #userAnswersInputError, #questionTypeError {
+    color: rgb(212, 6, 6) !important;
+}
+
 .card-border {
     border-style: solid;
     border-width: .1rem;

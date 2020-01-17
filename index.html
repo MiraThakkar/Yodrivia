@@ -37,11 +37,13 @@
 
             <ul class="list-unstyled components mr-0">
                 <form class=" d-flex flex-column" id="addUserQuestionForm">
+                    <p class="p-0 m-0 ml-2" id="userQuestionInputError"></p>
                     <div class="mb-3 d-flex w-100">
                       <textarea class="form-control w-100 mx-1" id="userInputQuestion" placeholder="Enter your question here..." required></textarea>
                     </div>
                     
                     <div class="container-fluid d-flex flex-column px-1">
+                        <p class="p-0 m-0 ml-2" id="questionTypeError"></p>
                         <p class="m-0" id="userQuestionTypeHeader">Question Type:</p>
 
                         <div class="custom-control d-flex flex-row custom-radio align-items-center">
@@ -61,6 +63,7 @@
                     <div class="container-fluid d-flex flex-column px-1 mt-2" id="correctAnswerContainer">
                         <p class="m-0" id="correctAnswerHeader">Correct Answer:</p>
 
+                        <p class="p-0 m-0 ml-2" id="userAnswersInputError"></p>
                         <div class="d-none container-fluid p-0 m-0" id="trueFalseAnswers">
                             <div class="custom-control d-flex flex-row custom-radio">
                                 <input type="radio" id="userAnswerTrue" name="customAnswerRadio" class="custom-control-input m-0 p-0 mr-1">
@@ -73,10 +76,12 @@
                         </div>
 
                         <div class="d-none container-fluid p-0 m-0" id="userMultipleChoiceAnswers">
-                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleAnswerA" placeholder="Answer A" required></textarea>
-                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleAnswerB" placeholder="Answer B" required></textarea>
-                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleAnswerC" placeholder="Answer C" required></textarea>
-                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleAnswerD" placeholder="Answer D" required></textarea>                            
+                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleChoiceAnswer" placeholder="Enter the answer" required></textarea>   
+                            
+                            <p class="m-0" id="correctAnswerHeader">Multiple Choice Options:</p>
+                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleChoiceA" placeholder="Option A" required></textarea>
+                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleChoiceB" placeholder="Option B" required></textarea>
+                            <textarea class="form-control w-100 mb-2 pb-0 userMultipleAnswer" id="userMultipleChoiceC" placeholder="Option C" required></textarea>
                         </div>
                     </div> 
 
@@ -86,8 +91,10 @@
                         <h3 class="text-wrap w-75"> Trivia Generated</h3>
                     </div>
                     
+                    <p class="p-0 m-0 ml-2" id="errorMessage"></p>
+
                     <div class="mb-3 d-flex w-100">
-                        <input class="form-control w-100 mx-1" id="userIn" placeholder="Enter number of question" required></input>
+                        <input class="form-control w-100 mx-1" id="numOfQuestionsInputDB" placeholder="Number of questions..." required></input>
                     </div>
                     
                     <p class="m-0" id="userQuestionTypeHeader">Question Category:</p>
@@ -103,7 +110,7 @@
                         <label class="radio-inline form-control w-100 mx-1"><input type="radio" name="optradio">Medium</label>
                         <label class="radio-inline form-control w-100 mx-1"><input type="radio" name="optradio">Hard</label>
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg">Generate Questions</button>
+                    <button type="button" class="btn btn-primary btn-lg" id="generateQuestions">Generate Questions</button>
 
                   </form>
             </ul>
@@ -175,7 +182,7 @@
                     </a>
                 </div>
 
-                <div class="card card-question d-flex flex-column justify-content-center align-items-center override-cardContainer">
+                <div class="card card-question flex-column justify-content-center align-items-center override-cardContainer d-none" id="cardTemplate">
                     <div class="front card-override card-border">
                         <div class="card-body">
                             <h3 class="card-title text-center">Question 1</h3>
