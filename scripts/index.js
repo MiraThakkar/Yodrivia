@@ -21,6 +21,25 @@ $(document).ready(function () {
     $(".card-question").click(function(){ flipcard() }) ;  
 
     $(document).on("click", ".questionTypeRadio", renderAnswerInputs)
+
+
+    //event click on generate question button to get user input for Trivia
+    $(".btn-lg").click( function(e){
+
+        e.preventDefault();
+
+        var number = $("#userIn").val();
+        var category = $("#categorySelect").val();
+        //TODO value of difficulty
+        var difficulty = 
+        console.log(number);
+        console.log(category);
+
+
+    });
+    
+    
+
 });
 
 //function to flip the question card
@@ -67,12 +86,14 @@ function flipcard (){
 };
 
 
-//Question categore options
+//Question category options
 
 var questionCatetory = {
     "General Knowledge": "9",
     "Sports":  "21",
+    "History": "23",
     "Politics": "24"
+    
   };
 
 
