@@ -3,6 +3,17 @@ console.log(questionCardTemplate);
 
 $(document).ready(function () {
     $("#cardTemplate").remove();
+
+
+    var category= $('#categorySelect');
+    $.each(questionCatetory, function(name, value) {
+        var option = $("<option/>", {
+            text: name,
+            value: value
+        });
+        category.append(option);
+    });
+
     //call the function when load the page (prevent see the back of the card "anwsers")
     flipcard();
 
@@ -78,49 +89,6 @@ function flipcard (){
         axis: 'x',
     });
 };
-
-
-//Question category options
-
-var questionCatetory = {
-    "Any Type": "",
-    "General Knowledge": "9",
-    "Entertainment: Books": "10",
-    "Entertainment: Film": "11",
-    "Entertainment: Music": "12",
-    "Entertainment: Musicals & Theaters": "13",
-    "Entertainment: Television": "14",
-    "Entertainment: Video Games": "15",
-    "Entertainment: Board Games": "16",
-    "Science & Nature": "17",
-    "Science: Computers": "18",
-    "Science: Matemetics": "19",
-    "Mythology": "20",
-    "Sports":  "21",
-    "Geography": "22",
-    "History": "23",
-    "Politics": "24",
-    "Art": "25",
-    "Celebrities": "26",
-    "Animals": "27",
-    "Vehicals": "28",
-    "Entertainment: Comics": "29",
-    "Science: Gadgets": "30",
-    "Entertainment: Japanese Anime & Manga": "31",
-    "Entertainment: Cartoon & Animations": "32"
-
-  };
-
-
-  var category= $('#categorySelect');
-  //
-  $.each(questionCatetory, function(name, value) {
-    var $option = $("<option/>", {
-      text: name,
-      value: value
-    });
-    category.append(option);
-  });
 
 //funtion to call Trivia DB
 function triviaDB(numOfQuestions, category="", difficulty=""){
