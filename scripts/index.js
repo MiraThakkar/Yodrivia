@@ -70,6 +70,29 @@ function flipcard (){
     });
 };
 
+
+//Question categore options
+
+var questionCatetory = {
+    "General Knowledge": "9",
+    "Sports":  "21",
+    "Politics": "24"
+  };
+
+
+  var category= $('#categorySelect');
+  //
+  $.each(questionCatetory, function(key, value) {
+    var $option = $("<option/>", {
+      text: key,
+      value: value
+    });
+    category.append($option);
+  });
+
+
+
+
 //funtion to call Trivia DB
 function triviaDB (){
 
@@ -80,12 +103,15 @@ function triviaDB (){
         url: triviaURL,
         method: "GET"
         }).then(function(response){
+
+console.log(response);
     
         // looping through the response stored in "response function"
         for (i=0; i<1; i++){
             //defining variable and storing a question to the variable
             var question = response.results[i].question;
             var answersArr = [];
+            
             //looping through the answers and stroing into "answersArr"
                 for(j=0; j<3; j++){
                     var option = response.results[i].incorrect_answers[j];
@@ -106,7 +132,6 @@ function triviaDB (){
                 answersArr.sort(function(a,b){return 0.5-Math.random()});
                 console.log(answersArr);            
             }
-            
 
         }
                     
