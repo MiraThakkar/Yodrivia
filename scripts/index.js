@@ -21,6 +21,15 @@ $(document).ready(function () {
     $(".card-question").click(function(){ flipcard() }) ;  
 
     $(document).on("click", ".questionTypeRadio", renderAnswerInputs)
+
+
+
+    $("#categorySelect").on("change", function(e){
+        var category = e.target.value;
+    }
+    
+    )
+
 });
 
 //function to flip the question card
