@@ -141,7 +141,7 @@ function triviaDB(numOfQuestions, category="", difficulty=""){
 
 function generateQuestionValidation() {
     //Form validation to ensure input are correct
-    if(parseInt($("#numOfQuestionsInputDB").val()) < 0 || parseInt($("#numOfQuestionsInputDB").val()) > 50) {
+    if(parseInt($("#numOfQuestionsInputDB").val()) < 1 || parseInt($("#numOfQuestionsInputDB").val()) > 50) {
         $("#errorMessage").text("Enter a number between 1-50");
         return;
     }
