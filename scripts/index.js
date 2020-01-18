@@ -202,7 +202,7 @@ function generateDBQuestions(response) {
             shuffleOptions.push(item.correct_answer);
             shuffle(shuffleOptions);
         }
-        let newGeneratedQuestion = new TriviaQuestion(item.type, item.question, shuffleOptions, item.correct_answer);
+        let newGeneratedQuestion = new TriviaQuestion(item.type, item.question, shuffleOptions, item.correct_answer, false);
         questionArray.push(newGeneratedQuestion);
 
         //Make the card element from the newQuestion
