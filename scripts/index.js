@@ -5,6 +5,17 @@ var questionArray = [];
 
 $(document).ready(function () {
     $(".cardTemplate").remove();
+
+    //Generate Category list
+    var category= $('#categorySelect');
+    $.each(questionCatetory, function(name, value) {
+      var option = $("<option/>", {
+        text: name,
+        value: value
+      });
+      category.append(option);
+    });
+
     // Put all necessary Event Listeners below here //
     //////////////////////////////////////////////////
 
