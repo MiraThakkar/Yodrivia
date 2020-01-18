@@ -1,11 +1,10 @@
 var questionCardTemplate = $(".cardTemplate").clone();
 console.log(questionCardTemplate);
 
+var questionArray = [];
+
 $(document).ready(function () {
     $(".cardTemplate").remove();
-    //call the function when load the page (prevent see the back of the card "anwsers")
-    flipcard();
-
     // Put all necessary Event Listeners below here //
     //////////////////////////////////////////////////
 
@@ -14,9 +13,10 @@ $(document).ready(function () {
         generateQuestionValidation()
     });
 
+    //Generating user question
     $("#addUserQuestionBttn").click(function() {
-        userFormValidation();
-        //TODO: Add the question to the questions container
+        let validForm = userFormValidation();
+        if(validForm) generateUserQuestion();
     });
 
     //bind functionality to sidebar
@@ -33,7 +33,8 @@ $(document).ready(function () {
     //event click on question card controlling the flip
     $(".card-question").click(function(){ flipcard() }) ;  
 
-    $(document).on("click", ".questionTypeRadio", renderAnswerInputs)
+    $(document).on("click", ".questionTypeRadio", renderAnswerInputs);
+    $(document).on("click", ".card-question", flipcard);
 });
 
 //function to flip the question card
@@ -61,10 +62,10 @@ var autoExpand = function (field) {
 };
 
 function renderAnswerInputs() {
-    if($(this).attr("data-questionType") === "trueFalse") {
+    if($(this).attr("data-questionType") === "boolean") {
         $("#trueFalseAnswers").removeClass("d-none");
         $("#userMultipleChoiceAnswers").addClass("d-none")
-    } else if($(this).attr("data-questionType") === "multipleChoice") {
+    } else if($(this).attr("data-questionType") === "multiple") {
         $("#trueFalseAnswers").addClass("d-none");
         $("#userMultipleChoiceAnswers").removeClass("d-none")
     } else if($(this).attr("data-questionType") === "openEnded") {
@@ -168,15 +169,91 @@ function userFormValidation() {
     }
 
     if($("#userInputQuestionType1").is(":checked")){
-        if(($("#userAnswerTrue").is(":checked") || $("#userAnswerFalse").is(":checked")))  return;
+        if(($("#userAnswerTrue").is(":checked") || $("#userAnswerFalse").is(":checked")))  return true;
         $("#userAnswersInputError").text("Please select true/false for your question!");
     } else if($("#userInputQuestionType2").is(":checked")) { //multiple choice is clicked
-        if(($("#userMultipleChoiceAnswer").val().length > 0) && ($("#userMultipleChoiceA").val().length > 0) && ($("#userMultipleChoiceB").val().length > 0) && ($("#userMultipleChoiceC").val().length > 0)) return;
+        if(($("#userMultipleChoiceAnswer").val().length > 0) && ($("#userMultipleChoiceA").val().length > 0) && ($("#userMultipleChoiceB").val().length > 0) && ($("#userMultipleChoiceC").val().length > 0)) return true;
         $("#userAnswersInputError").text("Please enter 3 options & answer!");
     } else { //nothing is checked
         $("#questionTypeError").text("Please select question type!");
     }
-
-    //TODO: Add user generated questions to the question container
 }
     
+function generateUserQuestion() {
+    $("#myCarousel").empty();
+    $("#card-questions-container").empty();
+
+    //Assumed that this function does not fire unless form validation already checked
+    let userQuestion = $("#userInputQuestion").val();
+    let questionType;
+    let options, answer;
+
+    if($("#userInputQuestionType1").is(":checked")) { //boolean
+        questionType = $("#userInputQuestionType1").attr("data-questionType");
+        options = [ "true", "false"];
+        if($("#userAnswerTrue").is(":checked")) {
+            answer = true
+        } else {
+            answer = false;
+        }
+    } else { //multiple
+        questionType = $("#userInputQuestionType2").attr("data-questionType");
+        let shuffleOptions = [
+            $("#userMultipleChoiceAnswer").val(),
+            $("#userMultipleChoiceA").val(),
+            $("#userMultipleChoiceB").val(),
+            $("#userMultipleChoiceC").val(),
+        ];
+        shuffle(shuffleOptions);
+        options = shuffleOptions;
+        answer = $("#userMultipleChoiceAnswer").val();
+    }
+
+    //Create the question using the TriviaQuestion class
+    let newUserQuestion = new TriviaQuestion(questionType, userQuestion, options, answer, false);
+    questionArray.push(newUserQuestion);
+    console.log(newUserQuestion);
+
+    //Make the card element from the newQuestion
+    let addQuestionCard = generateQuestionCard(newUserQuestion);
+    $("#questionsContainer").prepend(addQuestionCard);
+    flipcard();
+}
+
+function generateQuestionCard(newGeneratedQuestion) {
+    console.log("Entered generateQuestionCard")
+    let newQuestionCard = questionCardTemplate.clone();
+    //Question Header
+    newQuestionCard.find("#question-header").text(`Question ${questionArray.length}`);
+
+    //Question Description
+    newQuestionCard.find("#questionDescFront").text(newGeneratedQuestion.question);
+    newQuestionCard.find("#questionDescBack").text(newGeneratedQuestion.question);
+
+    //Question Options
+    newGeneratedQuestion.options.forEach((item, index) => {
+        newQuestionCard.find(`#label${index+1}`).text(item);
+    });
+
+    //remove unused options for specific cards
+    if(newGeneratedQuestion.questionType === "boolean") {
+        newQuestionCard.find("#label3").remove();
+        newQuestionCard.find("#label4").remove();
+    }
+    
+    //Question Answer
+    newQuestionCard.find("#questionAnswer").text(`Answer: ${newGeneratedQuestion.answer}`);
+
+    newQuestionCard.removeClass("d-none");
+    console.log(newQuestionCard.find("label"));
+    return newQuestionCard;
+}
+
+//Function for shuffling array
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
