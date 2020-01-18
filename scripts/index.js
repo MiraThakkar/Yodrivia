@@ -143,5 +143,7 @@ function userFormValidation() {
     } else { //nothing is checked
         $("#questionTypeError").text("Please select question type!");
     }
+
+    
 }
     
