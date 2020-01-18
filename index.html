@@ -195,11 +195,11 @@
                 </div>
 
                 <audio id="yodaLaugh" src="./resources/yoda_laugh.mp3" preload="auto"></audio>
-                <button type="button" class="btn btn-primary btn-lg d-none flex-row justify-content-center align-items-center" id="yodafyBttn">
+                <button type="button" class="btn btn-primary btn-lg d-none flex-row justify-content-center align-items-center mb-4" id="yodafyBttn">
                     <div class="mr-4 justify-content-center align-items-center d-flex"id="yodaIconContainer">
                         <img id="yodaIconBttn" src="./resources/yodaIcon.png">
                     </div>
-                    <p class="m-0" id="yodaBttnText">You must unlearn what you have learned.</p>
+                    <p class="m-0" id="yodaBttnText">"You must unlearn what you have learned."</p>
                 </button>
 
                 <!-- Question Card Template below -->
@@ -207,8 +207,14 @@
                     <div class="card card-question flex-column justify-content-center align-items-center override-cardContainer d-none cardTemplate">
                         <div class="front card-override card-border">
                             <div class="card-body">
-                                <div class="d-flex flex-row justify-content-center align-items-center">
-                                    <h3 class="card-title text-center">Question<h3 class="ml-3" id="question-header">1</h3></h3>
+                                <div class="d-flex flex-row justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center justify-content-center" id="yodafiedIconContainer">
+                                        <img id="yodafiedCard" src="./resources/Yoda-icon.png">
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <h3 class="card-title text-center m-0">Question<h3 class="m-0 ml-3" id="question-header">1</h3></h3>                                        
+                                    </div>
+                                    <button type="submit" class="m-0 p-0" id="deleteQuestionBttn" style="color: rgb(255, 34, 34); background-color: none;" form=""><i class="fa fa-trash fa-2x"></i></button>
                                 </div>
                                 <hr>
                                 <p id="questionDescFront">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis nam omnis possimus perspiciatis! Aliquid quis beatae incidunt unde deserunt aspernatur, soluta inventore facere recusandae quam voluptates voluptas assumenda, animi quibusdam!</p>

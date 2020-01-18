@@ -112,8 +112,6 @@ function renderAnswerInputs() {
 
 //funtion to call Trivia DB
 function triviaDB(numOfQuestions, category="", difficulty=""){
-    console.log(category);
-    console.log(difficulty);
     (category) ? category=`&category=${category}` : category="";
     (difficulty) ? difficulty=`&difficulty=${difficulty}` : difficulty="";
 
