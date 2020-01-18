@@ -1,5 +1,4 @@
 var questionCardTemplate = $(".cardTemplate").clone();
-console.log(questionCardTemplate);
 
 var questionArray = [];
 
@@ -39,14 +38,20 @@ $(document).ready(function () {
     document.addEventListener('input', function (event) {
         if (event.target.tagName.toLowerCase() !== 'textarea') return;
         autoExpand(event.target);
-    }, false);
-
-    //event click on question card controlling the flip
-    $(".card-question").click(function(){ flipcard() }) ;  
+    }, false);  
 
     $(document).on("click", ".questionTypeRadio", renderAnswerInputs);
     $(document).on("click", ".card-question", flipcard);
+    
+    window.addEventListener("resize", resizeQuestionElements);
 });
+
+function resizeQuestionElements() {
+    $("#questionsContainer").children(".card").each(function() {
+        var divHeight = $(this).find(".front").height(); 
+        $(this).find(".back").css('height', (divHeight+20)+'px');
+    });
+}
 
 //function to flip the question card
 function flipcard() {
@@ -84,13 +89,6 @@ function renderAnswerInputs() {
     } 
 };
 
-//function to flip the question card
-function flipcard (){
-    $(".card-question").flip({
-        axis: 'x',
-    });
-};
-
 //funtion to call Trivia DB
 function triviaDB(numOfQuestions, category="", difficulty=""){
     (category) ? category=`&category=${category}` : category="";
@@ -104,9 +102,33 @@ function triviaDB(numOfQuestions, category="", difficulty=""){
         }).then(function(response){
 
         //TODO: Get response and create question cards appropriately
-        console.log(response);           
+        console.log(response);    
+        generateDBQuestions(response);       
     });
         
+}
+
+function generateDBQuestions(response) {
+    const { results } = response;
+
+    results.forEach((item, index) => {
+        let shuffleOptions = [];
+        if(item.type === "boolean") {
+            shuffleOptions = ["true", "false"];
+        } else { //multiple choice
+            item.incorrect_answers.forEach((item) => { shuffleOptions.push(item); });
+            shuffleOptions.push(item.correct_answer);
+            shuffle(shuffleOptions);
+        }
+        let newGeneratedQuestion = new TriviaQuestion(item.type, item.question, shuffleOptions, item.correct_answer);
+        questionArray.push(newGeneratedQuestion);
+        console.log(questionArray);
+
+        //Make the card element from the newQuestion
+        let addQuestionCard = generateQuestionCard(newGeneratedQuestion);
+        $("#questionsContainer").prepend(addQuestionCard);
+        flipcard();
+    });
 }
 
 function generateQuestionValidation() {
@@ -182,7 +204,6 @@ function generateUserQuestion() {
     //Create the question using the TriviaQuestion class
     let newUserQuestion = new TriviaQuestion(questionType, userQuestion, options, answer, false);
     questionArray.push(newUserQuestion);
-    console.log(newUserQuestion);
 
     //Make the card element from the newQuestion
     let addQuestionCard = generateQuestionCard(newUserQuestion);
@@ -191,10 +212,10 @@ function generateUserQuestion() {
 }
 
 function generateQuestionCard(newGeneratedQuestion) {
-    console.log("Entered generateQuestionCard")
     let newQuestionCard = questionCardTemplate.clone();
     //Question Header
-    newQuestionCard.find("#question-header").text(`Question ${questionArray.length}`);
+    newQuestionCard.find("#question-header").text(`${questionArray.length}`);
+    newQuestionCard.find("#questionHeaderBack").text(`${questionArray.length}`);
 
     //Question Description
     newQuestionCard.find("#questionDescFront").text(newGeneratedQuestion.question);
@@ -215,7 +236,6 @@ function generateQuestionCard(newGeneratedQuestion) {
     newQuestionCard.find("#questionAnswer").text(`Answer: ${newGeneratedQuestion.answer}`);
 
     newQuestionCard.removeClass("d-none");
-    console.log(newQuestionCard.find("label"));
     return newQuestionCard;
 }
 
