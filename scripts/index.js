@@ -1,8 +1,8 @@
-var questionCardTemplate = $("#cardTemplate").clone();
+var questionCardTemplate = $(".cardTemplate").clone();
 console.log(questionCardTemplate);
 
 $(document).ready(function () {
-    $("#cardTemplate").remove();
+    $(".cardTemplate").remove();
     //call the function when load the page (prevent see the back of the card "anwsers")
     flipcard();
 
@@ -115,7 +115,7 @@ var questionCatetory = {
   var category= $('#categorySelect');
   //
   $.each(questionCatetory, function(name, value) {
-    var $option = $("<option/>", {
+    var option = $("<option/>", {
       text: name,
       value: value
     });
@@ -134,6 +134,7 @@ function triviaDB(numOfQuestions, category="", difficulty=""){
         method: "GET"
         }).then(function(response){
 
+        //TODO: Get response and create question cards appropriately
         console.log(response);           
     });
         
@@ -175,5 +176,7 @@ function userFormValidation() {
     } else { //nothing is checked
         $("#questionTypeError").text("Please select question type!");
     }
+
+    //TODO: Add user generated questions to the question container
 }
     
