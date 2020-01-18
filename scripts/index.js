@@ -60,7 +60,22 @@ $(document).ready(function () {
     document.getElementById("yodaLaugh").addEventListener('ended', function() {
         this.currentTime = 0;
     }, false);
+
+    //delete button listener
+    $(document).on("click", "#deleteQuestionBttn", deleteCurrentQuestion);
 });
+
+function deleteCurrentQuestion() {
+    let removeItemIndex = parseInt($(this).parent().find("#question-header").text()) - 1;
+    questionArray.splice(removeItemIndex, 1);
+    $("#questionsContainer").empty();
+    if(questionArray.length > 0) {
+        questionArray.forEach((item, index) => {
+            let addQuestionCard = generateQuestionCard(item, index);
+            $("#questionsContainer").prepend(addQuestionCard);
+        });
+    }
+}
 
 function yodafyQuestions() {
     //Play yoda laugh
@@ -255,11 +270,18 @@ function generateUserQuestion() {
     flipcard();
 }
 
-function generateQuestionCard(newGeneratedQuestion) {
+function generateQuestionCard(newGeneratedQuestion, index="") {
+    
     let newQuestionCard = questionCardTemplate.clone();
     //Question Header
-    newQuestionCard.find("#question-header").text(questionArray.length);
-    newQuestionCard.find("#questionHeaderBack").text(questionArray.length);
+    if(index === "") {
+        newQuestionCard.find("#question-header").text(questionArray.length);
+        newQuestionCard.find("#questionHeaderBack").text(questionArray.length);
+    } else {
+        newQuestionCard.find("#question-header").text(index+1);
+        newQuestionCard.find("#questionHeaderBack").text(index+1);
+    }
+
 
     //Question Description
     newQuestionCard.find("#questionDescFront").html(newGeneratedQuestion.question).text();
