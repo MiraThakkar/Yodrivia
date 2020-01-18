@@ -100,18 +100,14 @@
                     <p class="m-0" id="userQuestionTypeHeader">Question Category:</p>
                     <div class= "mb-3 d-flex w-100">
                         <select class="form-control w-100 mx-1" id="categorySelect">
-                          <option selected>Any Type</option>
-                          
+                          <option selected value="">Any Type</option>
                         </select>
                     </div>
 
                     <p class="m-0" id="userQuestionTypeHeader">Question Difficulty:</p>
                     <div class= "mb-3 d-flex w-100">
                         <select class="form-control w-100 mx-1" id="questionDiff">
-                          <option selected>Any Difficulty</option>
-                          <option selected>Easy</option>
-                          <option selected>Medium</option>
-                          <option selected>Hard</option>
+                          <option selected value="">Any Difficulty</option>
                         </select>
                     </div>
                     <button type="button" class="btn btn-primary btn-lg" id="generateQuestions">Generate Questions</button>
@@ -122,8 +118,8 @@
 
         <!-- Page Content Holder -->
         <div class="container">
-            <div class="px-0" id="content">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="px-0 d-flex flex-column align-items-center" id="content">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
                     <div class="container-fluid">
     
                         <button type="button" id="sidebarCollapse" class="navbar-btn">
@@ -136,7 +132,7 @@
                 </nav>
 
                 <!--Baby Yoda Carousel-->
-                <div id="myCarousel" class="carousel slide mb-4" data-ride="carousel">
+                <div id="myCarousel" class="carousel slide mb-4 w-100" data-ride="carousel">
                     
                     <ol class="carousel-indicators">
                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -144,33 +140,47 @@
                       <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>
                 
-                    
                     <div class="carousel-inner">
                 
                       <div class="item active">
                         <img src= "Images/baby-yoda1.jpeg" alt= "baby-yoda" style="width:100%;">
                         <div class="carousel-caption">
-                          <h3>Baby Yoda</h3>
-                          <p> Isn't it cute!! </p>
+                          <h3>Welcome to Yodrivia!</h3>
+                          <p class="carText">Progress through each slide for a walkthrough or explore on your own!</p>
                         </div>
                       </div>
                 
                       <div class="item">
                         <img src="Images/baby-yoda5.jpeg" alt="baby-yoda" style="width:100%;">
                         <div class="carousel-caption">
-                          <h3>Baby Yoda</h3>
-                          <p>one more time!!</p>
+                          <h3>Menu in the Upper Left!</h3>
+                          <p class="carText">Use the menu to open a sidebar that will allow you to input your own trivia questions or generate some automatically.</p>
                         </div>
                       </div>
                     
                       <div class="item">
                         <img src="Images/baby-yoda4.jpeg" alt="baby-yoda" style = "width:100%;">
                         <div class="carousel-caption">
-                          <h3>Yoda</h3>
-                          <p>Again!!</p>
+                          <h3>I'm strong with The Force!</h3>
+                          <p class="carText">Once you generate a question I'll get out of your way!  Watch my special force ability that lets me disappear.</p>
                         </div>
                       </div>
-                  
+
+                      <div class="item">
+                        <img src="Images/baby-yoda.jpg" alt="baby-yoda" style="width:100%;">
+                        <div class="carousel-caption">
+                          <h3>More Than Just That!</h3>
+                          <p class="carText">Use the menu icons in the upper right to clear all the current questions, save your questions for later retrieval or go to your question history page!</p>
+                        </div>
+                      </div>
+
+                      <div class="item">
+                        <img src="Images/baby-yoda-soup.jpg" alt="baby-yoda" style="width:100%;">
+                        <div class="carousel-caption">
+                          <h3>Click a Question to See the Answer!</h3>
+                          <p class="carText">If you are curious what the answer is to a question, go ahead and click it!  Be sure to Yodafy them to have a real challenge!</p>
+                        </div>
+                      </div>
                     </div>
                 
                     
@@ -184,12 +194,28 @@
                     </a>
                 </div>
 
+                <audio id="yodaLaugh" src="./resources/yoda_laugh.mp3" preload="auto"></audio>
+                <button type="button" class="btn btn-primary btn-lg d-none flex-row justify-content-center align-items-center mb-4" id="yodafyBttn">
+                    <div class="mr-4 justify-content-center align-items-center d-flex"id="yodaIconContainer">
+                        <img id="yodaIconBttn" src="./resources/yodaIcon.png">
+                    </div>
+                    <p class="m-0" id="yodaBttnText">"You must unlearn what you have learned."</p>
+                </button>
+
                 <!-- Question Card Template below -->
-                <div id="questionsContainer">
-                    <div class="card card-question flex-column justify-content-center align-items-center override-cardContainer d-none cardTemplate">
+                <div class="d-flex flex-column w-100" id="questionsContainer">
+                    <div class="card card-question flex-column justify-content-center align-items-center override-cardContainer d-none cardTemplate mb-4">
                         <div class="front card-override card-border">
                             <div class="card-body">
-                                <h3 class="card-title text-center" id="question-header">Question 1</h3>
+                                <div class="d-flex flex-row justify-content-between align-items-center">
+                                    <div class="align-items-center justify-content-center" id="yodafiedIconContainer">
+                                        <img class="d-none" id="yodafiedCard" src="./resources/Yoda-icon.png">
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <h3 class="card-title text-center m-0">Question<h3 class="m-0 ml-3" id="question-header">1</h3></h3>                                        
+                                    </div>
+                                    <button type="submit" class="m-0 p-0" id="deleteQuestionBttn" style="color: rgb(255, 34, 34); background-color: none;" form=""><i class="fa fa-trash fa-2x"></i></button>
+                                </div>
                                 <hr>
                                 <p id="questionDescFront">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis nam omnis possimus perspiciatis! Aliquid quis beatae incidunt unde deserunt aspernatur, soluta inventore facere recusandae quam voluptates voluptas assumenda, animi quibusdam!</p>
                                 <div class="row ">
@@ -212,7 +238,9 @@
                         </div>
                         <div class="back card-border">
                             <div class="card-body">
-                                <h3 class="card-title text-center">Question 1</h3>
+                                <div class="d-flex flex-row justify-content-center align-items-center">
+                                    <h3 class="card-title text-center">Question<h3 class="ml-3" id="questionHeaderBack">1</h3></h3>
+                                </div>
                                 <hr>
                                 <p id ="questionDescBack">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis nam omnis possimus perspiciatis! Aliquid quis beatae incidunt unde deserunt aspernatur, soluta inventore facere recusandae quam voluptates voluptas assumenda, animi quibusdam!</p>
                                 <hr>

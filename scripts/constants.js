@@ -1,5 +1,4 @@
 var questionCatetory = {
-    "Any Type": "",
     "General Knowledge": "9",
     "Entertainment: Books": "10",
     "Entertainment: Film": "11",
@@ -24,4 +23,10 @@ var questionCatetory = {
     "Science: Gadgets": "30",
     "Entertainment: Japanese Anime & Manga": "31",
     "Entertainment: Cartoon & Animations": "32"
-  };
+};
+
+var questionDifficulty = {
+  "Easy": "easy",
+  "Medium": "medium",
+  "Hard": "hard"
+}
