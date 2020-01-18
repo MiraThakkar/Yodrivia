@@ -47,11 +47,11 @@
                         <p class="m-0" id="userQuestionTypeHeader">Question Type:</p>
 
                         <div class="custom-control d-flex flex-row custom-radio align-items-center">
-                            <input type="radio" id="userInputQuestionType1" name="userQuestionType" class="custom-control-input questionTypeRadio m-0 p-0 mr-1" data-questionType="trueFalse">
+                            <input type="radio" id="userInputQuestionType1" name="userQuestionType" class="custom-control-input questionTypeRadio m-0 p-0 mr-1" data-questionType="boolean">
                             <label class="custom-control-label m-0 p-0 userInputQuestionType" for="userInputQuestionType1">True/False</label>
                         </div>
                         <div class="custom-control d-flex flex-row custom-radio">
-                            <input type="radio" id="userInputQuestionType2" name="userQuestionType" class="custom-control-input questionTypeRadio m-0 p-0" data-questionType="multipleChoice">
+                            <input type="radio" id="userInputQuestionType2" name="userQuestionType" class="custom-control-input questionTypeRadio m-0 p-0" data-questionType="multiple">
                             <label class="custom-control-label m-0 p-0 userInputQuestionType" for="userInputQuestionType2">Multiple Choice</label>
                         </div>    
                         <div class="custom-control d-flex flex-row custom-radio">
@@ -135,9 +135,7 @@
                     </div>
                 </nav>
 
-                <!-- Question Card Template below -->
                 <!--Baby Yoda Carousel-->
-
                 <div id="myCarousel" class="carousel slide mb-4" data-ride="carousel">
                     
                     <ol class="carousel-indicators">
@@ -186,41 +184,44 @@
                     </a>
                 </div>
 
-                <div class="card card-question flex-column justify-content-center align-items-center override-cardContainer d-none" id="cardTemplate">
-                    <div class="front card-override card-border">
-                        <div class="card-body">
-                            <h3 class="card-title text-center">Question 1</h3>
-                            <hr>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis nam omnis possimus perspiciatis! Aliquid quis beatae incidunt unde deserunt aspernatur, soluta inventore facere recusandae quam voluptates voluptas assumenda, animi quibusdam!</p>
-                            <div class="row ">
-                                <div class="col-12 btn-toolbar btn-group-toggle d-flex justify-content-center align-items-center" data-toggle="buttons">
-                                    <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option2"> Option 1
-                                    </label> 
-                                    <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option2"> Option 2
-                                    </label> 
-                                    <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option2"> Option 3
-                                    </label> 
-                                    <label class="btn btn-primary">
-                                        <input type="radio" name="options" id="option2"> Option 4
-                                    </label>
-                                </div> 
+                <!-- Question Card Template below -->
+                <div id="questionsContainer">
+                    <div class="card card-question flex-column justify-content-center align-items-center override-cardContainer d-none cardTemplate">
+                        <div class="front card-override card-border">
+                            <div class="card-body">
+                                <h3 class="card-title text-center" id="question-header">Question 1</h3>
+                                <hr>
+                                <p id="questionDescFront">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis nam omnis possimus perspiciatis! Aliquid quis beatae incidunt unde deserunt aspernatur, soluta inventore facere recusandae quam voluptates voluptas assumenda, animi quibusdam!</p>
+                                <div class="row ">
+                                    <div class="col-12 btn-toolbar btn-group-toggle d-flex justify-content-center align-items-center" data-toggle="buttons">
+                                        <label class="btn btn-primary" id="label1">
+                                            <input type="radio" name="options" id="option1"> Option 1
+                                        </label> 
+                                        <label class="btn btn-primary" id="label2">
+                                            <input type="radio" name="options" id="option2"> Option 2
+                                        </label> 
+                                        <label class="btn btn-primary" id="label3">
+                                            <input type="radio" name="options" id="option3"> Option 3
+                                        </label> 
+                                        <label class="btn btn-primary" id="label4">
+                                            <input type="radio" name="options" id="option4"> Option 4
+                                        </label>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back card-border">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Question 1</h3>
+                                <hr>
+                                <p id ="questionDescBack">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis nam omnis possimus perspiciatis! Aliquid quis beatae incidunt unde deserunt aspernatur, soluta inventore facere recusandae quam voluptates voluptas assumenda, animi quibusdam!</p>
+                                <hr>
+                                <h4 id="questionAnswer">Answer</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="back card-border">
-                        <div class="card-body">
-                            <h3 class="card-title text-center">Question 1</h3>
-                            <hr>
-                            <p id ="question">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis nam omnis possimus perspiciatis! Aliquid quis beatae incidunt unde deserunt aspernatur, soluta inventore facere recusandae quam voluptates voluptas assumenda, animi quibusdam!</p>
-                            <hr>
-                            <h4>Answer</h4>
-                        </div>
-                    </div>
-                </div>   
-            </div>
+                </div>
+            </div> 
         </div>
     </div>
 
@@ -232,6 +233,7 @@
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <script src="./models/TriviaQuestion.js"></script>
     <script src="./scripts/index.js"></script>
     <script src="./scripts/jquery.flip.min.js"></script>
     <script src="./apiKey.js"></script>
