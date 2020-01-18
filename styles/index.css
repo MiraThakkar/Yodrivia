@@ -2,6 +2,11 @@
     height: unset !important;
 }
 
+.carText {
+    font-family: 'Montserrat';
+    font-size: 1.2em;
+}
+
 .btn {
     white-space: normal;
     word-wrap: break-word;
