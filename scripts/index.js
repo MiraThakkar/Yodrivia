@@ -54,7 +54,18 @@ $(document).ready(function () {
     $(document).on("click", ".card-question", flipcard);
     
     window.addEventListener("resize", resizeQuestionElements);
+
+    //bind for yoda laugh and reset when ended
+    $("#yodafyBttn").on("click", yodafyQuestions);
+    document.getElementById("yodaLaugh").addEventListener('ended', function() {
+        this.currentTime = 0;
+    }, false);
 });
+
+function yodafyQuestions() {
+    //Play yoda laugh
+    document.getElementById("yodaLaugh").play();
+}
 
 function resizeQuestionElements() {
     $("#questionsContainer").children(".card").each(function() {
@@ -164,6 +175,9 @@ function generateQuestionValidation() {
 
     $("#myCarousel").empty();
     $("#card-questions-container").empty();
+    $("#yodafyBttn").removeClass("d-none");
+    $("#yodafyBttn").addClass("d-flex");
+    $("#yodafyBttn").addClass("flex-wrap");
 
     triviaDB(numberOfQuestions, questionCategory, questionDiff);
 }
@@ -203,6 +217,9 @@ function userFormValidation() {
 function generateUserQuestion() {
     $("#myCarousel").empty();
     $("#card-questions-container").empty();
+    $("#yodafyBttn").removeClass("d-none");
+    $("#yodafyBttn").addClass("d-flex");
+    $("#yodafyBttn").addClass("flex-wrap");
 
     //Assumed that this function does not fire unless form validation already checked
     let userQuestion = $("#userInputQuestion").val();

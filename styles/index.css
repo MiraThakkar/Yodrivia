@@ -2,6 +2,11 @@
     height: unset !important;
 }
 
+.btn {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
 #errorMessage, #userQuestionInputError, #userAnswersInputError, #questionTypeError {
     color: rgb(212, 6, 6) !important;
 }
