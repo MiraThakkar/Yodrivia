@@ -181,10 +181,15 @@
                 </div>
 
                 <audio id="yodaLaugh" src="./resources/yoda_laugh.mp3" preload="auto"></audio>
-                <button type="button" class="btn btn-primary btn-lg d-none" id="yodafyBttn">You must unlearn what you have learned.</button>
+                <button type="button" class="btn btn-primary btn-lg d-none flex-row justify-content-center align-items-center" id="yodafyBttn">
+                    <div class="mr-4 justify-content-center align-items-center d-flex"id="yodaIconContainer">
+                        <img id="yodaIconBttn" src="./resources/yodaIcon.png">
+                    </div>
+                    <p class="m-0" id="yodaBttnText">You must unlearn what you have learned.</p>
+                </button>
 
                 <!-- Question Card Template below -->
-                <div id="questionsContainer">
+                <div class="d-flex flex-column w-100" id="questionsContainer">
                     <div class="card card-question flex-column justify-content-center align-items-center override-cardContainer d-none cardTemplate">
                         <div class="front card-override card-border">
                             <div class="card-body">
