@@ -1,3 +1,9 @@
+var storage_i = 0;
+
+while(localStorage.getItem("QuestionArray" + storage_i) !=  null){
+    storage_i++;
+}
+
 var questionCardTemplate = $(".cardTemplate").clone();
 
 var questionArray = [];
@@ -202,8 +208,10 @@ function generateDBQuestions(response) {
             shuffleOptions.push(item.correct_answer);
             shuffle(shuffleOptions);
         }
-        let newGeneratedQuestion = new TriviaQuestion(item.type, item.question, shuffleOptions, item.correct_answer);
+        let newGeneratedQuestion = new TriviaQuestion(item.category, item.type, item.question, shuffleOptions, item.correct_answer);
         questionArray.push(newGeneratedQuestion);
+
+        console.log(questionArray);
 
         //Make the card element from the newQuestion
         let addQuestionCard = generateQuestionCard(newGeneratedQuestion);
@@ -304,7 +312,7 @@ function generateUserQuestion() {
     }
 
     //Create the question using the TriviaQuestion class
-    let newUserQuestion = new TriviaQuestion(questionType, userQuestion, options, answer, false);
+    let newUserQuestion = new TriviaQuestion(category, questionType, userQuestion, options, answer, false);
     questionArray.push(newUserQuestion);
 
     //Make the card element from the newQuestion
@@ -358,3 +366,15 @@ function shuffle(a) {
     }
     return a;
 }
+
+
+$("#saveHistory").click(function (){
+    alert("Current Questions Saved in Local Storage!");
+    localStorage.setItem("QuestionArray" + storage_i, JSON.stringify(questionArray));
+    storage_i++;
+});
+
+$("#clearHistory").click(function (){
+    alert("Local Storage Cleared!");
+    localStorage.clear();
+});

@@ -1,5 +1,6 @@
 class TriviaQuestion {
-    constructor(questionType, question, options, answer, yodafied) {
+    constructor(category, questionType, question, options, answer, yodafied) {
+        this.category = category;
         this.questionType = questionType;
         this.question = question;
         this.options = options;

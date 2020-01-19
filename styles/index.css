@@ -282,3 +282,21 @@ hr{
     }
 
 }
+
+/* History page */
+
+.questionContainer {
+    border-radius: 10px;
+    width:80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: rgb(109, 124, 109);
+    padding: 30px;
+
+}
+
+.foundation-5-top-bar {
+    box-shadow: 1rem;
+    background: #333;
+    color: #fefefe;
+  }
