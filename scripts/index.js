@@ -208,7 +208,10 @@ function generateDBQuestions(response) {
             shuffleOptions.push(item.correct_answer);
             shuffle(shuffleOptions);
         }
-        let newGeneratedQuestion = new TriviaQuestion(item.category, item.type, item.question, shuffleOptions, item.correct_answer);
+ mira-final-project
+        let newGeneratedQuestion = new TriviaQuestion(item.category, item.type, item.question, shuffleOptions, item.correct_answer)
+        let newGeneratedQuestion = new TriviaQuestion(item.type, item.question, shuffleOptions, item.correct_answer, false);
+ master
         questionArray.push(newGeneratedQuestion);
 
         console.log(questionArray);
